@@ -1,0 +1,28 @@
+import {reactive} from "vue";
+
+interface StateStore {
+    open: boolean;
+    active: boolean;
+    settings: boolean;
+    onChange: () => void;
+    activeBtn: () => void;
+    settingsBtn: () => void;
+}
+
+const stateStore: StateStore = reactive({
+    open: false,
+    settings: false,
+    active: false,
+    breadcrumb:null,
+    onChange() {
+        stateStore.open = !stateStore.open;
+    },
+    settingsBtn() {
+        stateStore.settings = !stateStore.settings;
+    },
+    activeBtn() {
+        stateStore.active = !stateStore.active;
+    },
+});
+
+export default stateStore;
