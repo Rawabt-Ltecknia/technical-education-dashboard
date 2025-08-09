@@ -20,6 +20,7 @@ import registerPlugins from "@/plugins";
 
 import '@/core/extensions/index';
 
+
 await bootstrap();
 
 
@@ -30,7 +31,13 @@ async function bootstrap() {
         await registerPlugins(app);
         app.component("QuillEditor", QuillEditor);
         app.mount("#app");
+
+
+
+
     } catch (error) {
         console.error('Failed to initialize application:', error);
     }
 }
+
+

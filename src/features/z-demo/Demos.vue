@@ -310,6 +310,22 @@
 
 
   </v-row>
+  <ConfirmDialog
+      v-model="showWarning"
+      title="تحذير"
+      message="هذه رسالة تحذير."
+      type="warning"
+      @confirm="onConfirm"
+  />
+
+  <ConfirmDialog
+      v-model="showDelete"
+      title="حذف"
+      message="هل تريد حذف العنصر؟"
+      type="delete"
+      loading
+      @confirm="onConfirm"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -329,11 +345,17 @@ import {validationRules} from "@/core/validators/validators-rules";
 import {ref} from "vue";
 import AppPagination from "@/core/components/common/AppPagination.vue";
 import {uppercase} from "@/core/filters/text-filters";
+import ConfirmDialog from "@/core/components/common/ConfirmDialog.vue";
 
 const snackbarStore = useSnackbarStore();
 const required = () => validationRules.required();
 const handleRefresh = () => alert('refresh');
 const handleSearch = (e: any) => snackbarStore.showSuccess(e)
+const showWarning = ref<boolean>(false);
+const showDelete = ref<boolean>(false);
+const onConfirm = () => {
+  alert('confirm')
+}
 const page = ref<number>(1);
 const itemsPerPage = ref<number>(10);
 
@@ -443,11 +465,9 @@ const items = [
 const snackbar = useSnackbarStore();
 
 async function editItem(item: any) {
+  showWarning.value = true;
   await snackbar.showSnackbar(" تجربة رسالة " + item.instructor.name);
 }
-
-// const sortBy = ref<any>([{ key: 'courseName', order: 'asc', value: 'courseName' }])
-
 </script>
 
 <style lang="scss" scoped>

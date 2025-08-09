@@ -17,7 +17,7 @@ export const useLoadingStore = defineStore('loading', {
             this.loading = true;
             if (!loadingMessage) {
                 loadingMessage = translation("LOADING");
-            }else {
+            } else {
                 this.loadingMessage = loadingMessage;
             }
         },
@@ -26,3 +26,5 @@ export const useLoadingStore = defineStore('loading', {
         }
     }
 });
+
+
