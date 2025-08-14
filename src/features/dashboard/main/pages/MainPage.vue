@@ -7,326 +7,341 @@
 
   ></page-title>
   <v-row>
-    <v-col cols="12" xxl="6" lg="6">
+    <v-col cols="12" xxl="12" lg="12">
 
       <v-card
-          class="welcome-card trezo-card border-radius d-block border-0 shadow-none"
       >
-
-        <div class="welcome-card-content">
-          <div class="content">
-            <h5 class="fw-semibold text-white">
-              Welcome Back, <span>Olivia!</span>
-            </h5>
-            <p class="text-white">Your progress this week is Awesome.</p>
-            <div class="extra-space"></div>
-            <div class="d-md-flex align-items-center">
-              <div class="item d-flex align-items-center">
-                <div
-                    class="icon text-danger bg-danger-200 border-radius d-flex align-items-center justify-content-center"
-                >
-                  <i class="material-symbols-outlined"> airplay </i>
-                </div>
-                <div>
-                  <span class="title d-block fw-semibold text-white"> 75h </span>
-                  <span class="d-block"> Hours Spent </span>
-                </div>
-              </div>
-              <div class="item d-flex align-items-center">
-                <div
-                    class="icon text-success bg-success-100 border-radius d-flex align-items-center justify-content-center"
-                >
-                  <i class="material-symbols-outlined"> local_library </i>
-                </div>
-                <div>
-                  <span class="title d-block fw-semibold text-white"> 15 </span>
-                  <span class="d-block"> Course Completed </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="image">
-            <v-img
-                src="/assets/images/online-learning.gif"
-                alt="online-learning-image"
-            />
-          </div>
-        </div>
-      </v-card>
-    </v-col>
-    <v-col cols="12" xxl="2" lg="4" md="4" sm="6">
-      <v-card
-          class="total-courses-card trezo-card border-radius d-block bg-white border-0 shadow-none"
-      >
-        <div class="courses-card-content">
-          <span class="d-block text-body">
-            Total Courses </span>
-          <h5 class="mb-0">45.6k</h5>
-          <div
-              class="icon ml-auto mr-auto text-secondary bg-secondary-100 rounded-circle mx-auto d-flex align-items-center justify-content-center"
-          >
-            <i class="material-symbols-outlined"> auto_stories </i>
-          </div>
-          <div class="info d-flex align-items-center justify-space-between">
-            <span class="d-block text-body"> This Month </span>
-            <span class="lh-1 text-success">
-          <i class="material-symbols-outlined"> trending_up </i>
-        </span>
-          </div>
-        </div>
-      </v-card>
-    </v-col>
-  </v-row>
-  <v-row>
-
-    <v-col cols="12" lg="12">
-      <v-card
-          class="courses-card trezo-card border-radius d-block bg-white border-0 shadow-none"
-      >
-        <div class="v-card-header">
-          <h5 class="mb-0">Courses</h5>
-          <div class="d-flex align-items-center">
-            <v-menu>
-              <template v-slot:activator="{ props }">
-                <button
-                    type="button"
-                    v-bind="props"
-                    class="card-header-menu border-none d-inline-block border-radius"
-                >
-                  All Courses
-                </button>
-              </template>
-              <v-list class="menu-content">
-                <button type="button" class="bg-transparent border-none">
-                  This Day
-                </button>
-                <button type="button" class="bg-transparent border-none">
-                  This Week
-                </button>
-                <button type="button" class="bg-transparent border-none">
-                  This Month
-                </button>
-                <button type="button" class="bg-transparent border-none">
-                  This Year
-                </button>
-              </v-list>
-            </v-menu>
-          </div>
-        </div>
-        <div class="trezo-table-content">
-          <div class="trezo-table">
-            <v-data-table :items="items" :headers="headers"
-                          hover
-            >
-              <template v-slot:[`item.actions`]="props">
-                <v-btn icon @click="editItem(props)">
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
-              </template>
-
-            </v-data-table>
-
-          </div>
-        </div>
-      </v-card>
-    </v-col>
-
-  </v-row>
-  <v-row>
-    <v-col cols="12" lg="12">
-      <v-card
-          class="courses-card trezo-card border-radius d-block bg-white border-0 shadow-none"
-      >
-        <div class="v-card-header">
-          <h5 class="mb-0">Courses</h5>
-          <div class="d-flex align-items-center">
-            <v-menu>
-              <template v-slot:activator="{ props }">
-                <button
-                    type="button"
-                    v-bind="props"
-                    class="card-header-menu border-none d-inline-block border-radius"
-                >
-                  All Courses
-                </button>
-              </template>
-              <v-list class="menu-content">
-                <button type="button" class="bg-transparent border-none">
-                  This Day
-                </button>
-                <button type="button" class="bg-transparent border-none">
-                  This Week
-                </button>
-                <button type="button" class="bg-transparent border-none">
-                  This Month
-                </button>
-                <button type="button" class="bg-transparent border-none">
-                  This Year
-                </button>
-              </v-list>
-            </v-menu>
-          </div>
-        </div>
-        <div class="trezo-table-content">
-          <div class="trezo-table">
-            <v-table>
-              <thead>
-              <tr>
-                <th class="text-start">ID</th>
-                <th class="text-start">Course Name</th>
-                <th class="text-start">Category</th>
-                <th class="text-start">Instructor</th>
-                <th class="text-start">Enrolled</th>
-                <th class="text-start">Start Date</th>
-                <th class="text-start">End Date</th>
-                <th class="text-start">Price</th>
-                <th class="text-start">Action</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr v-for="item in items.slice(0, 6)" :key="item.id">
-                <td class="text-body">{{ item.id }}</td>
-                <td class="text-start">
-                  <RouterLink to="/dashboard" class="project-name fw-medium">
-                    {{ item.courseName }}
-                  </RouterLink>
-                </td>
-                <td>{{ item.category }}</td>
-                <td>
-                  <div class="customer-info d-flex align-items-center">
-                    <!--                    <div class="img">-->
-                    <!--                      <v-img-->
-                    <!--                          :src="item.instructor.image"-->
-                    <!--                          alt="instructor-image"-->
-                    <!--                      />-->
-                    <!--                    </div>-->
-                    <span class="d-block text-black fw-medium">
-                    {{ item.instructor.name }}
-                  </span>
-                  </div>
-                </td>
-                <td class="text-body">{{ item.enrolled }}</td>
-                <td class="text-body">{{ item.startDate }}</td>
-                <td class="text-body">{{ item.endDate }}</td>
-                <td>
-                  {{ item.price }}
-                </td>
-                <td>
-                  <div class="action-buttons d-flex align-items-center">
-                    <button type="button">
-                      <i class="material-symbols-outlined">
-                        {{ item.action.view }}
-                      </i>
-                    </button>
-                    <button type="button">
-                      <i class="material-symbols-outlined">
-                        {{ item.action.edit }}
-                      </i>
-                    </button>
-                    <button type="button">
-                      <i class="material-symbols-outlined">
-                        {{ item.action.delete }}
-                      </i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              </tbody>
-            </v-table>
-          </div>
-          <v-pagination :length="4"
-                        active-color="primary"
-                        color="primary"
-                        last-icon="mdi mdi-chevron-double-left"
-          ></v-pagination>
-
-        </div>
-      </v-card>
-    </v-col>
-
-  </v-row>
-  <v-row>
-    <v-col cols="12" lg="12">
-      <v-card
-          class="courses-card trezo-card border-radius d-block bg-white border-0 shadow-none"
-      >
-
-        <div class="trezo-table-content">
-          <success-alert text="Hello"/>
-          <error-alert
-              class="mt-8"
-              text="Hello"/>
-
-          <info-alert
-              class="mt-8"
-              text="Hello"/>
-          <warning-alert
-              class="mt-8"
-              text="Hello"/>
-          <v-alert
-              class="mt-8"
-              border="start"
-              type="success"
-              icon="mdi mdi-check-circle-outline"
-              :title="'title'"
-              :closable="true"
-              :text="'textContent'"
-          >
-            <slot></slot>
-          </v-alert>
-        </div>
-      </v-card>
-    </v-col>
-
-
-  </v-row>
-  <v-row>
-    <v-col cols="12" lg="12">
-      <v-card
-          class="courses-card trezo-card border-radius d-block bg-white border-0 shadow-none"
-      >
-
-        <div class="trezo-table-content">
-          {{ text }}
-          <app-text-field
-              v-model="text"
-              :rules="required()"
-              label="Enter"
-              prepend-inner-icon="mdi mdi-account-circle-outline"/>
-
-          <app-auto-complete-field
-              v-model="text"
-              :items="items"
-              item-text="courseName"
-              item-value="id"
-              :rules="required()"
-              label="Enter"
-              prepend-inner-icon="mdi mdi-account-circle-outline"
-              @on-refresh="handleRefresh"
+        <v-container class="pa-6">
+          <gas-measurements-chart
+              :measurements="data"
+              title="قياسات البروبان والبيوتان عبر الزمن"
+              :height="420"
           />
-          <app-search-text-field
-              @on-search="handleRefresh"
-              prepend-inner-icon="mdi mdi-account-circle-outline"
-              clearable
-          />
-          <app-file-input
-              v-model="file"
-              current-file-url="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-              label="Upload"
-              prepend-inner-icon="mdi mdi-paperclip"
-              clearable
-          />
-          <app-date-picker
-            v-model="texta"/>
-          <app-time-picker
-              v-model="texta"
-          />
-        </div>
+        </v-container>
       </v-card>
     </v-col>
-
-
   </v-row>
+<!--  <v-row>-->
+<!--    <v-col cols="12" xxl="6" lg="6">-->
+
+<!--      <v-card-->
+<!--          class="welcome-card trezo-card border-radius d-block border-0 shadow-none"-->
+<!--      >-->
+
+<!--        <div class="welcome-card-content">-->
+<!--          <div class="content">-->
+<!--            <h5 class="fw-semibold text-white">-->
+<!--              Welcome Back, <span>Olivia!</span>-->
+<!--            </h5>-->
+<!--            <p class="text-white">Your progress this week is Awesome.</p>-->
+<!--            <div class="extra-space"></div>-->
+<!--            <div class="d-md-flex align-items-center">-->
+<!--              <div class="item d-flex align-items-center">-->
+<!--                <div-->
+<!--                    class="icon text-danger bg-danger-200 border-radius d-flex align-items-center justify-content-center"-->
+<!--                >-->
+<!--                  <i class="material-symbols-outlined"> airplay </i>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                  <span class="title d-block fw-semibold text-white"> 75h </span>-->
+<!--                  <span class="d-block"> Hours Spent </span>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="item d-flex align-items-center">-->
+<!--                <div-->
+<!--                    class="icon text-success bg-success-100 border-radius d-flex align-items-center justify-content-center"-->
+<!--                >-->
+<!--                  <i class="material-symbols-outlined"> local_library </i>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                  <span class="title d-block fw-semibold text-white"> 15 </span>-->
+<!--                  <span class="d-block"> Course Completed </span>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="image">-->
+<!--            <v-img-->
+<!--                src="/assets/images/online-learning.gif"-->
+<!--                alt="online-learning-image"-->
+<!--            />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </v-card>-->
+<!--    </v-col>-->
+<!--    <v-col cols="12" xxl="2" lg="4" md="4" sm="6">-->
+<!--      <v-card-->
+<!--          class="total-courses-card trezo-card border-radius d-block bg-white border-0 shadow-none"-->
+<!--      >-->
+<!--        <div class="courses-card-content">-->
+<!--          <span class="d-block text-body">-->
+<!--            Total Courses </span>-->
+<!--          <h5 class="mb-0">45.6k</h5>-->
+<!--          <div-->
+<!--              class="icon ml-auto mr-auto text-secondary bg-secondary-100 rounded-circle mx-auto d-flex align-items-center justify-content-center"-->
+<!--          >-->
+<!--            <i class="material-symbols-outlined"> auto_stories </i>-->
+<!--          </div>-->
+<!--          <div class="info d-flex align-items-center justify-space-between">-->
+<!--            <span class="d-block text-body"> This Month </span>-->
+<!--            <span class="lh-1 text-success">-->
+<!--          <i class="material-symbols-outlined"> trending_up </i>-->
+<!--        </span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </v-card>-->
+<!--    </v-col>-->
+<!--  </v-row>-->
+<!--  <v-row>-->
+
+<!--    <v-col cols="12" lg="12">-->
+<!--      <v-card-->
+<!--          class="courses-card trezo-card border-radius d-block bg-white border-0 shadow-none"-->
+<!--      >-->
+<!--        <div class="v-card-header">-->
+<!--          <h5 class="mb-0">Courses</h5>-->
+<!--          <div class="d-flex align-items-center">-->
+<!--            <v-menu>-->
+<!--              <template v-slot:activator="{ props }">-->
+<!--                <button-->
+<!--                    type="button"-->
+<!--                    v-bind="props"-->
+<!--                    class="card-header-menu border-none d-inline-block border-radius"-->
+<!--                >-->
+<!--                  All Courses-->
+<!--                </button>-->
+<!--              </template>-->
+<!--              <v-list class="menu-content">-->
+<!--                <button type="button" class="bg-transparent border-none">-->
+<!--                  This Day-->
+<!--                </button>-->
+<!--                <button type="button" class="bg-transparent border-none">-->
+<!--                  This Week-->
+<!--                </button>-->
+<!--                <button type="button" class="bg-transparent border-none">-->
+<!--                  This Month-->
+<!--                </button>-->
+<!--                <button type="button" class="bg-transparent border-none">-->
+<!--                  This Year-->
+<!--                </button>-->
+<!--              </v-list>-->
+<!--            </v-menu>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="trezo-table-content">-->
+<!--          <div class="trezo-table">-->
+<!--            <v-data-table :items="items" :headers="headers"-->
+<!--                          hover-->
+<!--            >-->
+<!--              <template v-slot:[`item.actions`]="props">-->
+<!--                <v-btn icon @click="editItem(props)">-->
+<!--                  <v-icon>mdi-pencil</v-icon>-->
+<!--                </v-btn>-->
+<!--              </template>-->
+
+<!--            </v-data-table>-->
+
+<!--          </div>-->
+<!--        </div>-->
+<!--      </v-card>-->
+<!--    </v-col>-->
+
+<!--  </v-row>-->
+<!--  <v-row>-->
+<!--    <v-col cols="12" lg="12">-->
+<!--      <v-card-->
+<!--          class="courses-card trezo-card border-radius d-block bg-white border-0 shadow-none"-->
+<!--      >-->
+<!--        <div class="v-card-header">-->
+<!--          <h5 class="mb-0">Courses</h5>-->
+<!--          <div class="d-flex align-items-center">-->
+<!--            <v-menu>-->
+<!--              <template v-slot:activator="{ props }">-->
+<!--                <button-->
+<!--                    type="button"-->
+<!--                    v-bind="props"-->
+<!--                    class="card-header-menu border-none d-inline-block border-radius"-->
+<!--                >-->
+<!--                  All Courses-->
+<!--                </button>-->
+<!--              </template>-->
+<!--              <v-list class="menu-content">-->
+<!--                <button type="button" class="bg-transparent border-none">-->
+<!--                  This Day-->
+<!--                </button>-->
+<!--                <button type="button" class="bg-transparent border-none">-->
+<!--                  This Week-->
+<!--                </button>-->
+<!--                <button type="button" class="bg-transparent border-none">-->
+<!--                  This Month-->
+<!--                </button>-->
+<!--                <button type="button" class="bg-transparent border-none">-->
+<!--                  This Year-->
+<!--                </button>-->
+<!--              </v-list>-->
+<!--            </v-menu>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="trezo-table-content">-->
+<!--          <div class="trezo-table">-->
+<!--            <v-table>-->
+<!--              <thead>-->
+<!--              <tr>-->
+<!--                <th class="text-start">ID</th>-->
+<!--                <th class="text-start">Course Name</th>-->
+<!--                <th class="text-start">Category</th>-->
+<!--                <th class="text-start">Instructor</th>-->
+<!--                <th class="text-start">Enrolled</th>-->
+<!--                <th class="text-start">Start Date</th>-->
+<!--                <th class="text-start">End Date</th>-->
+<!--                <th class="text-start">Price</th>-->
+<!--                <th class="text-start">Action</th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--              <tbody>-->
+<!--              <tr v-for="item in items.slice(0, 6)" :key="item.id">-->
+<!--                <td class="text-body">{{ item.id }}</td>-->
+<!--                <td class="text-start">-->
+<!--                  <RouterLink to="/dashboard" class="project-name fw-medium">-->
+<!--                    {{ item.courseName }}-->
+<!--                  </RouterLink>-->
+<!--                </td>-->
+<!--                <td>{{ item.category }}</td>-->
+<!--                <td>-->
+<!--                  <div class="customer-info d-flex align-items-center">-->
+<!--                    &lt;!&ndash;                    <div class="img">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                      <v-img&ndash;&gt;-->
+<!--                    &lt;!&ndash;                          :src="item.instructor.image"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                          alt="instructor-image"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                      />&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                    <span class="d-block text-black fw-medium">-->
+<!--                    {{ item.instructor.name }}-->
+<!--                  </span>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--                <td class="text-body">{{ item.enrolled }}</td>-->
+<!--                <td class="text-body">{{ item.startDate }}</td>-->
+<!--                <td class="text-body">{{ item.endDate }}</td>-->
+<!--                <td>-->
+<!--                  {{ item.price }}-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                  <div class="action-buttons d-flex align-items-center">-->
+<!--                    <button type="button">-->
+<!--                      <i class="material-symbols-outlined">-->
+<!--                        {{ item.action.view }}-->
+<!--                      </i>-->
+<!--                    </button>-->
+<!--                    <button type="button">-->
+<!--                      <i class="material-symbols-outlined">-->
+<!--                        {{ item.action.edit }}-->
+<!--                      </i>-->
+<!--                    </button>-->
+<!--                    <button type="button">-->
+<!--                      <i class="material-symbols-outlined">-->
+<!--                        {{ item.action.delete }}-->
+<!--                      </i>-->
+<!--                    </button>-->
+<!--                  </div>-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              </tbody>-->
+<!--            </v-table>-->
+<!--          </div>-->
+<!--          <v-pagination :length="4"-->
+<!--                        active-color="primary"-->
+<!--                        color="primary"-->
+<!--                        last-icon="mdi mdi-chevron-double-left"-->
+<!--          ></v-pagination>-->
+
+<!--        </div>-->
+<!--      </v-card>-->
+<!--    </v-col>-->
+
+<!--  </v-row>-->
+<!--  <v-row>-->
+<!--    <v-col cols="12" lg="12">-->
+<!--      <v-card-->
+<!--          class="courses-card trezo-card border-radius d-block bg-white border-0 shadow-none"-->
+<!--      >-->
+
+<!--        <div class="trezo-table-content">-->
+<!--          <success-alert text="Hello"/>-->
+<!--          <error-alert-->
+<!--              class="mt-8"-->
+<!--              text="Hello"/>-->
+
+<!--          <info-alert-->
+<!--              class="mt-8"-->
+<!--              text="Hello"/>-->
+<!--          <warning-alert-->
+<!--              class="mt-8"-->
+<!--              text="Hello"/>-->
+<!--          <v-alert-->
+<!--              class="mt-8"-->
+<!--              border="start"-->
+<!--              type="success"-->
+<!--              icon="mdi mdi-check-circle-outline"-->
+<!--              :title="'title'"-->
+<!--              :closable="true"-->
+<!--              :text="'textContent'"-->
+<!--          >-->
+<!--            <slot></slot>-->
+<!--          </v-alert>-->
+<!--        </div>-->
+<!--      </v-card>-->
+<!--    </v-col>-->
+
+
+<!--  </v-row>-->
+<!--  <v-row>-->
+<!--    <v-col cols="12" lg="12">-->
+<!--      <v-card-->
+<!--          class="courses-card trezo-card border-radius d-block bg-white border-0 shadow-none"-->
+<!--      >-->
+
+<!--        <div class="trezo-table-content">-->
+<!--          {{ text }}-->
+<!--          <app-text-field-->
+<!--              v-model="text"-->
+<!--              :rules="required()"-->
+<!--              label="Enter"-->
+<!--              prepend-inner-icon="mdi mdi-account-circle-outline"/>-->
+
+<!--          <app-auto-complete-field-->
+<!--              v-model="text"-->
+<!--              :items="items"-->
+<!--              item-text="courseName"-->
+<!--              item-value="id"-->
+<!--              :rules="required()"-->
+<!--              label="Enter"-->
+<!--              prepend-inner-icon="mdi mdi-account-circle-outline"-->
+<!--              @on-refresh="handleRefresh"-->
+<!--          />-->
+<!--          <app-search-text-field-->
+<!--              @on-search="handleRefresh"-->
+<!--              prepend-inner-icon="mdi mdi-account-circle-outline"-->
+<!--              clearable-->
+<!--          />-->
+<!--          <app-file-input-->
+<!--              v-model="file"-->
+<!--              current-file-url="https://cdn.vuetifyjs.com/images/cards/docks.jpg"-->
+<!--              label="Upload"-->
+<!--              prepend-inner-icon="mdi mdi-paperclip"-->
+<!--              clearable-->
+<!--          />-->
+<!--          <app-date-picker-->
+<!--            v-model="texta"/>-->
+<!--          <app-time-picker-->
+<!--              v-model="texta"-->
+<!--          />-->
+<!--        </div>-->
+<!--      </v-card>-->
+<!--    </v-col>-->
+
+
+<!--  </v-row>-->
 
 
 </template>
@@ -347,6 +362,7 @@ import AppSearchTextField from "@/core/components/common/forms/AppSearchTextFiel
 import AppFileInput from "@/core/components/common/forms/AppFileInput.vue";
 import AppDatePicker from "@/core/components/common/forms/AppDatePicker.vue";
 import AppTimePicker from "@/core/components/common/forms/AppTimePicker.vue";
+import GasMeasurementsChart from "@/core/components/common/GasMeasurementsChart.vue";
 
 const required = () => validationRules.required();
 const handleRefresh = () => alert('refresh');
@@ -403,6 +419,40 @@ const items = [
   },
 ]
 const snackbar = useSnackbarStore();
+const data = [
+  { timestamp: '2025-08-10T08:00:00Z', propane: 3100, butane: 2700 },
+  { timestamp: '2025-08-10T09:00:00Z', propane: 3250, butane: 2850 },
+  { timestamp: '2025-08-10T10:00:00Z', propane: 3400, butane: 2900 },
+  { timestamp: '2025-08-10T11:00:00Z', propane: 3600, butane: 3100 },
+  { timestamp: '2025-08-10T12:00:00Z', propane: 4100, butane: 3500 },
+  { timestamp: '2025-08-10T13:00:00Z', propane: 3950, butane: 3300 },
+  { timestamp: '2025-08-10T14:00:00Z', propane: 3700, butane: 3100 },
+  { timestamp: '2025-08-10T15:00:00Z', propane: 4200, butane: 3650 },
+  { timestamp: '2025-08-10T16:00:00Z', propane: 4500, butane: 3900 },
+  { timestamp: '2025-08-10T17:00:00Z', propane: 4300, butane: 3700 },
+
+  { timestamp: '2025-08-11T08:00:00Z', propane: 3000, butane: 2600 },
+  { timestamp: '2025-08-11T09:00:00Z', propane: 3100, butane: 2700 },
+  { timestamp: '2025-08-11T10:00:00Z', propane: 3400, butane: 2900 },
+  { timestamp: '2025-08-11T11:00:00Z', propane: 3600, butane: 3200 },
+  { timestamp: '2025-08-11T12:00:00Z', propane: 4700, butane: 4000 },
+  { timestamp: '2025-08-11T13:00:00Z', propane: 4500, butane: 3850 },
+  { timestamp: '2025-08-11T14:00:00Z', propane: 3900, butane: 3300 },
+  { timestamp: '2025-08-11T15:00:00Z', propane: 4200, butane: 3600 },
+  { timestamp: '2025-08-11T16:00:00Z', propane: 4250, butane: 3650 },
+  { timestamp: '2025-08-11T17:00:00Z', propane: 4400, butane: 3800 },
+
+  { timestamp: '2025-08-12T08:00:00Z', propane: 3700, butane: 3400 },
+  { timestamp: '2025-08-12T09:00:00Z', propane: 3850, butane: 3550 },
+  { timestamp: '2025-08-12T10:00:00Z', propane: 3950, butane: 3700 },
+  { timestamp: '2025-08-12T11:00:00Z', propane: 4150, butane: 3650 },
+  { timestamp: '2025-08-12T12:00:00Z', propane: 4300, butane: 3800 },
+  { timestamp: '2025-08-12T13:00:00Z', propane: 4400, butane: 3950 },
+  { timestamp: '2025-08-12T14:00:00Z', propane: 4500, butane: 4100 },
+  { timestamp: '2025-08-12T15:00:00Z', propane: 4600, butane: 4200 },
+  { timestamp: '2025-08-12T16:00:00Z', propane: 4800, butane: 4350 },
+  { timestamp: '2025-08-12T17:00:00Z', propane: 4950, butane: 4500 },
+]
 
 async function editItem(item: any) {
   console.log(item.item.instructor.name)
